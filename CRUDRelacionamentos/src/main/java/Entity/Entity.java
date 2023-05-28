@@ -8,6 +8,15 @@ package Entity;
  *
  * @author Warley Ramires
  */
-public class Entity {
+public abstract class Entity {
     
+    private Long id;
+    
+    public void setId(Long id){
+        this.id = id;
+    }
+
+    public Long getId(){
+        return id;
+    }    
 }

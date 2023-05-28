@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Classes;
+package Contrato;
 
 import java.time.LocalDate;
 
@@ -10,8 +10,8 @@ import java.time.LocalDate;
  *
  * @author Warley Ramires
  */
-public class Contrato{
-    
+public class Contrato {
+
     private Long id;
     private String redacao;
     private LocalDate ultimaAtualizacao;
@@ -51,12 +51,11 @@ public class Contrato{
 
     @Override
     public String toString() {
-        return "Contrato{" 
-                + "id=" + id 
-                + ", redacao=" + redacao 
-                + ", ultimaAtualizacao=" + ultimaAtualizacao 
+        return "Contrato{"
+                + "id=" + id
+                + ", redacao=" + redacao
+                + ", ultimaAtualizacao=" + ultimaAtualizacao
                 + '}';
     }
-    
-    
+
 }
