@@ -11,12 +11,6 @@ CREATE DATABASE atividade3;
 
 USE atividade3;
 
-CREATE TABLE Cliente (
-  id BIGINT PRIMARY KEY,
-  cpf BIGINT,
-  nome VARCHAR(45)
-);
-
 CREATE TABLE cliente (
     id BIGINT NOT NULL AUTO_INCREMENT,
     cpf BIGINT NOT NULL,

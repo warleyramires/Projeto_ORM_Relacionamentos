@@ -43,7 +43,7 @@ public class Cliente extends Entity {
 
     }
 
-    public void setNome(String string) {
+    public void setNome(String nome) {
          try {
             if (nome.length() <= 45) {
                 this.nome = nome;

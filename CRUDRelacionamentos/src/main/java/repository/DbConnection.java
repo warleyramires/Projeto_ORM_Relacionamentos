@@ -32,13 +32,13 @@ public class DbConnection {
     // Static initialization
     static {
         // Local server
-        URL = "jdbc:mysql://127.0.0.1:3306/" + Dao.DB
+        URL = "jdbc:mysql://localhost/" + Dao.DB
                 + "?useUnicode=true"
                 + "&useJDBCCompliantTimezoneShift=true"
                 + "&serverTimezone=UTC"
                 + "&autoReconnect=true";
         USER = "root";
-        PASSWORD = "";
+        PASSWORD = "wRamires1997";
     }
 
     //<editor-fold defaultstate="collapsed" desc="Construtor privado">

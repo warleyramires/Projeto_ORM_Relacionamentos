@@ -19,7 +19,20 @@ import repository.Dao;
  * @author Warley Ramires
  */
 public class ClienteDao extends Dao<Cliente> {
+    
+    private static ClienteDao conexao;
 
+    private ClienteDao() {
+    }
+    
+    public static ClienteDao pegarConexao(){
+        if(conexao==null) return conexao = new ClienteDao();
+        else return conexao;
+    }
+    
+    
+   
+    
     public static final String TABLE = "cliente";
 
     @Override
@@ -82,6 +95,8 @@ public class ClienteDao extends Dao<Cliente> {
         }
 
     }
+
+
 }
 
 //

@@ -4,12 +4,15 @@
 
 package com.mycompany.crud_relacionamento;
 
+import Cliente.ClienteDao;
 import Cliente.Cliente;
 import Contrato.Contrato;
+import Contrato.ContratoDao;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import repository.Dao;
 
 /**
  *
@@ -38,7 +41,8 @@ public class CRUDRelacionamento {
 
         co1.setRedacao("Contrato por tempo determinado");
         co1.setUltimaAtualizacao(LocalDate.parse("21/05/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
+        c1.setId(1l);
+        co1.setCliente(c1);
         // Contrato 2
         Contrato co2 = new Contrato();
 
@@ -50,7 +54,7 @@ public class CRUDRelacionamento {
 
         co3.setRedacao("Contrato por tempo determinado");
         co3.setUltimaAtualizacao(LocalDate.parse("26/05/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
+        
         //</editor-fold>
         //<editor-fold defaultstate="collapsed" desc="Inserindo o cliente 2 e seus contratos">
         // Inserindo Cliente Beatriz Yana
@@ -107,7 +111,9 @@ public class CRUDRelacionamento {
         System.out.println(c2);
 
         //</editor-fold>
-    
+        
+        //ClienteDao.pegarConexao().saveOrUpdate(c1);
+        ContratoDao.pegarConexao().saveOrUpdate(co1);
     }
 
    
