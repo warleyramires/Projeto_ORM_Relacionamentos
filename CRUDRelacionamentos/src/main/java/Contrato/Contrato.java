@@ -4,15 +4,17 @@
  */
 package Contrato;
 
+import Cliente.Cliente;
+import Entity.Entity;
 import java.time.LocalDate;
 
 /**
  *
  * @author Warley Ramires
  */
-public class Contrato {
+public class Contrato extends Entity {
 
-    private Long id;
+    Cliente cliente;
     private String redacao;
     private LocalDate ultimaAtualizacao;
 
@@ -20,17 +22,20 @@ public class Contrato {
     }
 
     public Contrato(Long id, String redacao, LocalDate ultimaAtualizacao) {
-        this.id = id;
-        this.redacao = redacao;
-        this.ultimaAtualizacao = ultimaAtualizacao;
+        setId(id);
+
+        setRedacao(redacao);
+
+        setUltimaAtualizacao(ultimaAtualizacao);
+
     }
 
-    public Long getId() {
-        return id;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public String getRedacao() {
@@ -38,7 +43,15 @@ public class Contrato {
     }
 
     public void setRedacao(String redacao) {
-        this.redacao = redacao;
+        try {
+            if (redacao.length() <= 100000) {
+                this.redacao = redacao;
+            } else {
+                throw new IllegalArgumentException("A redação deve ter no máximo 100000 caracteres.");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
     }
 
     public LocalDate getUltimaAtualizacao() {
@@ -52,7 +65,6 @@ public class Contrato {
     @Override
     public String toString() {
         return "Contrato{"
-                + "id=" + id
                 + ", redacao=" + redacao
                 + ", ultimaAtualizacao=" + ultimaAtualizacao
                 + '}';

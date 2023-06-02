@@ -22,35 +22,60 @@ public class Cliente extends Entity {
         contratos = new ArrayList<>();
     }
 
-    public Cliente(Long id, Long cpf, String nome, ArrayList<Contrato> contratos) {
+    public Cliente(Long id, Long cpf, String nome) {
+
         setId(id);
-        this.cpf = cpf;
-        this.nome = nome;
-        this.contratos = contratos;
+        setCpf(cpf);
+        setNome(nome);
+
     }
-
-
 
     public Long getCpf() {
         return cpf;
     }
 
     public void setCpf(Long cpf) {
-       this.cpf = cpf;
+        this.cpf = cpf;
     }
-    
+
     public String getNome() {
         return nome;
-        
-
 
     }
+
+    public void setNome(String string) {
+         try {
+            if (nome.length() <= 45) {
+                this.nome = nome;
+            } else {
+                throw new IllegalArgumentException("O nome deve ter no máximo 45 caracteres.");
+            }
+        } catch (IllegalArgumentException e) {
+            // Tratar a exceção, por exemplo, exibir uma mensagem de erro ou registrar o erro em um log
+            System.out.println("Erro: " + e.getMessage());
+        }    }
 
     public ArrayList<Contrato> getContratos() {
         return contratos;
     }
+    
+    public void setContratos(ArrayList<Contrato> contratos) {
+        this.contratos = contratos;
+        
+    }
 
     public void addContrato(Contrato contrato) {
         contratos.add(contrato);
+        contrato.setCliente(this);
     }
+    
+       @Override
+    public String toString() {
+        return "Cliente{"
+                + "cpf=" + cpf
+                + ", nome=" + nome
+                + ", contratos=\n" + contratos.toString()
+                + '}';
+    }
+
 }
