@@ -27,3 +27,4 @@ CREATE TABLE contrato (
     FOREIGN KEY (cliente_id)
         REFERENCES cliente(id)
 );
+

@@ -35,7 +35,7 @@ public class CRUDRelacionamento {
             Logger.getLogger(CRUDRelacionamento.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        // Inserindo contratos de Ana Zaíra
+        // Contratos de Ana Zaíra
         // Contrato 1
         Contrato co1 = new Contrato();
 
@@ -43,21 +43,29 @@ public class CRUDRelacionamento {
         co1.setUltimaAtualizacao(LocalDate.parse("21/05/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         c1.setId(1l);
         co1.setCliente(c1);
+        
         // Contrato 2
         Contrato co2 = new Contrato();
 
         co2.setRedacao("Contrato por tempo determinado");
         co2.setUltimaAtualizacao(LocalDate.parse("01/05/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
+        c1.setId(1l);
+        co2.setCliente(c1);
+        
         // Contrato 3
         Contrato co3 = new Contrato();
 
         co3.setRedacao("Contrato por tempo determinado");
         co3.setUltimaAtualizacao(LocalDate.parse("26/05/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        c1.setId(1l);
+        co2.setCliente(c1);
+        
         
         //</editor-fold>
         //<editor-fold defaultstate="collapsed" desc="Inserindo o cliente 2 e seus contratos">
-        // Inserindo Cliente Beatriz Yana
+        
+        
+        // Cliente Beatriz Yana
         Cliente c2 = new Cliente();
 
         c2.setCpf(26752965030l);
@@ -76,25 +84,30 @@ public class CRUDRelacionamento {
 
         co4.setRedacao("Contrato de estágio");
         co4.setUltimaAtualizacao(LocalDate.parse("15/10/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        
+        c1.setId(1l);
+        co2.setCliente(c1);
         // Inserindo Contrato 5
         Contrato co5 = new Contrato();
 
         co5.setRedacao("Contrato de experiência");
         co5.setUltimaAtualizacao(LocalDate.parse("16/09/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        
+        c1.setId(1l);
+        co2.setCliente(c1);
         // Inserindo Contrato 6
         Contrato co6 = new Contrato();
 
         co6.setRedacao("Contrato de teletrabalho");
         co6.setUltimaAtualizacao(LocalDate.parse("17/08/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        
+        c1.setId(1l);
+        co2.setCliente(c1);
         // Inserindo Contrato 7
         Contrato co7 = new Contrato();
 
         co7.setRedacao("Contrato intermitente,");
         co7.setUltimaAtualizacao(LocalDate.parse("15/07/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        //</editor-fold>
+        c1.setId(1l);
+        co2.setCliente(c1);        
+//</editor-fold>
         //<editor-fold defaultstate="collapsed" desc="Implementando Bidirecionalidade para Cliente e Contrato">
         c1.addContrato(co1);
         c1.addContrato(co2);
@@ -112,8 +125,17 @@ public class CRUDRelacionamento {
 
         //</editor-fold>
         
-        //ClienteDao.pegarConexao().saveOrUpdate(c1);
+        ClienteDao.pegarConexao().saveOrUpdate(c1);
         ContratoDao.pegarConexao().saveOrUpdate(co1);
+        ContratoDao.pegarConexao().saveOrUpdate(co2);
+        ContratoDao.pegarConexao().saveOrUpdate(co3);
+        ContratoDao.pegarConexao().saveOrUpdate(co4);
+        ContratoDao.pegarConexao().saveOrUpdate(co5);
+        ContratoDao.pegarConexao().saveOrUpdate(co6);
+        ContratoDao.pegarConexao().saveOrUpdate(co7);
+        
+        ClienteDao.pegarConexao().saveOrUpdate(c2);
+        
     }
 
    
