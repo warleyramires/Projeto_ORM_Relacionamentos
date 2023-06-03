@@ -22,7 +22,7 @@ public class ClienteDao extends Dao<Cliente> {
     
     private static ClienteDao conexao;
 
-    private ClienteDao() {
+    public ClienteDao() {
     }
     
     public static ClienteDao pegarConexao(){
@@ -69,7 +69,7 @@ public class ClienteDao extends Dao<Cliente> {
     public String getSelectAllSQL() {
         return "select id, cpf, nome"
                 + " from Cliente"
-                + " where exlcuido = false";
+                + " where excluido = false";
     }
 
     @Override

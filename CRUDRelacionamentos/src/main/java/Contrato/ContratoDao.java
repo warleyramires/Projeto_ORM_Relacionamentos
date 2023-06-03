@@ -9,7 +9,7 @@ import repository.Dao;
 
 public class ContratoDao extends Dao<Contrato> {
         private static ContratoDao conexao;
-        private ContratoDao() {
+        public ContratoDao() {
     }
     
     public static ContratoDao pegarConexao(){
@@ -34,7 +34,7 @@ public class ContratoDao extends Dao<Contrato> {
     public String getSelectAllSQL() {
          return "select id, redacao, ultima_atualizacao cliente_id"
                 + " from Contrato"
-                + " where exlcuido = false"; // fix
+                + " where excluido = false"; // fix
 
     }
 
